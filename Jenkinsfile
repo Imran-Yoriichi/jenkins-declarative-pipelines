@@ -39,7 +39,7 @@ pipeline {
 
         stage('Deploy to Dev') {
             when {
-                expression { params.DEPLOY_ENV == 'staging' }
+                expression { params.DEPLOY_ENV == 'dev' }
             }
             steps {
                 echo 'Deploying to DEV environment...'
