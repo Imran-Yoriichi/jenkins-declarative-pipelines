@@ -18,7 +18,7 @@ pipeline {
         )
        string(
     name: 'DEPLOYER_NAME',
-    defaultValue: '',
+    defaultValue: 'ski',
     description: 'Who is deploying?'
 )
     }
