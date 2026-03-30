@@ -44,6 +44,18 @@ pipeline {
             steps {
                 echo 'Deploying to DEV environment...'
             }
+
+            post {
+        success {
+            echo "Successfully deployed ${env.APP_NAME} to ${params.DEPLOY_ENV}!"
+        }
+        failure {
+            echo "Deployment of ${env.APP_NAME} failed on build ${env.BUILD_NUMBER}!"
+        }
+        always {
+            echo 'Pipeline finished.'
+        }
+    }
         }
 
         stage('Deploy to Staging') {
