@@ -16,6 +16,7 @@ pipeline {
             defaultValue: true,
             description: 'Run the test suite?'
         )
+        DEPLOYER_NAME: 'ski'
     }
 
     stages {
@@ -24,6 +25,7 @@ pipeline {
             steps {
                 echo "Building ${env.APP_NAME}"
                 echo "Build number: ${env.BUILD_NUMBER}"
+                echo "Deployed by: ${params.DEPLOYER_NAME}"
             }
         }
 
