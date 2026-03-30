@@ -16,7 +16,11 @@ pipeline {
             defaultValue: true,
             description: 'Run the test suite?'
         )
-       string( DEPLOYER_NAME: 'ski' )
+       string(
+    name: 'DEPLOYER_NAME',
+    defaultValue: '',
+    description: 'Who is deploying?'
+)
     }
 
     stages {
