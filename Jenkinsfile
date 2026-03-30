@@ -66,6 +66,14 @@ pipeline {
                 echo 'Deploying to PRODUCTION...'
             }
         }
+        stage('Not first build') {
+    when {
+        expression { env.BUILD_NUMBER.toInteger() > 1 }
+    }
+    steps {
+        echo "This is build number ${env.BUILD_NUMBER}"
+    }
+}
 
     }
 
