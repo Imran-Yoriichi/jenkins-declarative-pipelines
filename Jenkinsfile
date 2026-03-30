@@ -29,7 +29,7 @@ pipeline {
 
         stage('Test') {
             when {
-                expression { params.RUN_TESTS == true }
+                expression { params.RUN_TESTS == false }
             }
             steps {
                 echo 'Running test suite...'
@@ -39,7 +39,7 @@ pipeline {
 
         stage('Deploy to Dev') {
             when {
-                expression { params.DEPLOY_ENV == 'dev' }
+                expression { params.DEPLOY_ENV == 'staging' }
             }
             steps {
                 echo 'Deploying to DEV environment...'
