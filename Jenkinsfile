@@ -119,9 +119,7 @@ pipeline {
         always {
             echo 'Pipeline finished.'
         }
-        always {
-            cleanWs()    // also clean up after the build finishes
-        }
+        
     }
     
 }
