@@ -29,7 +29,10 @@ pipeline {
             steps {
                 echo "Building ${env.APP_NAME}"
                 echo "Build number: ${env.BUILD_NUMBER}"
+                 echo "JOB NAME : ${env.JOB_NAME}"
+                echo "Workspace:   ${env.WORKSPACE}"
                 echo "Deployed by: ${params.DEPLOYER_NAME}"
+                echo "Jenkins URL: ${env.JENKINS_URL}"
             }
         }
 
