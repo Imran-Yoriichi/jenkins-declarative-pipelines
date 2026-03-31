@@ -10,6 +10,25 @@ pipeline {
         logRotator(numToKeepStr: '10')  // keep only last 10 builds
     )
 }
+    stages {
+        stage('Cleanup') {
+            steps {
+                cleanWs()    // wipe the workspace before starting
+            }
+        }
+
+        stage('Checkout') {
+            steps {
+                checkout scm    // fresh clone from Git
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building on a clean workspace!'
+            }
+        }
+    }
 
 
     environment {
@@ -118,6 +137,11 @@ pipeline {
         }
         always {
             echo 'Pipeline finished.'
+        }
+    }
+    post {
+        always {
+            cleanWs()    // also clean up after the build finishes
         }
     }
 }
