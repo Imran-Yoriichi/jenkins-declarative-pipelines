@@ -6,8 +6,11 @@ pipeline {
     timeout(time: 10, unit: 'MINUTES') // fail if pipeline takes over 10 mins
     retry(3)                            // retry entire pipeline up to 3 times
     disableConcurrentBuilds()           // only one build at a time
-    
+    buildDiscarder(
+        logRotator(numToKeepStr: '10')  // keep only last 10 builds
+    )
 }
+
 
     environment {
         APP_NAME = 'jenkins-practice-app'
