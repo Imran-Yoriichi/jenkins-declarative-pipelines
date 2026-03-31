@@ -7,7 +7,7 @@ pipeline {
     retry(3)                            // retry entire pipeline up to 3 times
     disableConcurrentBuilds()           // only one build at a time
     buildDiscarder(
-        logRotator(numToKeepStr: '10')  // keep only last 10 builds
+        logRotator(numToKeepStr: '3')  // keep only last 10 builds
     )
 }
 
