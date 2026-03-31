@@ -34,23 +34,7 @@ pipeline {
     }
 
     stages {
-        stage('Cleanup') {
-            steps {
-                cleanWs()    // wipe the workspace before starting
-            }
-        }
-
-        stage('Checkout') {
-            steps {
-                checkout scm    // fresh clone from Git
-            }
-        }
-
-        stage('Build') {
-            steps {
-                echo 'Building on a clean workspace!'
-            }
-        }
+        
 
         stage('Build') {
             steps {
